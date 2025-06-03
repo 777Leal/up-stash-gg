@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STASH - Contato</title>
+    <meta name="description" content="Entre em contato com a STASH. Estamos prontos para atender suas dúvidas, sugestões e solicitações.">
+    
+    <!-- Fontawesome Cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="css/contato.css">
+</head>
+<body>
+
+<!-- Navbar Melhorada -->
+<nav class="navbar" id="navbar">
+    <div class="navbar-container">
+        <!-- Brand -->
+        <a class="navbar-brand" href="index.html" aria-label="STASH - Página Inicial">
+            <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&q=80" alt="STASH Logo">
+            <span>STASH</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <ul class="navbar-nav" role="menubar">
+            <li class="nav-item" role="none">
+                <a class="nav-link" href="index.html" role="menuitem">Home</a>
+            </li>
+            <li class="nav-item" role="none">
+                <a class="nav-link" href="colecao.html" role="menuitem">Coleção</a>
+            </li>
+            <li class="nav-item" role="none">
+                <a class="nav-link" href="sobre.html" role="menuitem">Sobre</a>
+            </li>
+            <li class="nav-item" role="none">
+                <a class="nav-link active" href="contato.html" role="menuitem">Contato</a>
+            </li>
+        </ul>
+
+        <!-- Action Buttons -->
+        <div class="navbar-actions">
+            <button class="action-btn" id="searchBtn" aria-label="Pesquisar produtos" title="Pesquisar">
+                <i class="fas fa-search"></i>
+            </button>
+            <button class="action-btn" id="loginBtn" aria-label="Fazer login" title="Login">
+                <i class="fas fa-user"></i>
+            </button>
+            <button class="action-btn" aria-label="Lista de favoritos" title="Favoritos">
+                <i class="fas fa-heart"></i>
+                <span class="badge">2</span>
+            </button>
+            <button class="action-btn" aria-label="Carrinho de compras" title="Carrinho">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge">5</span>
+            </button>
+        </div>
+
+        <!-- Mobile Toggle -->
+        <button class="navbar-toggle" id="mobileToggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-labelledby="mobile-menu-title">
+        <h2 id="mobile-menu-title" class="sr-only">Menu de Navegação</h2>
+        
+        <ul class="mobile-nav" role="menubar">
+            <li class="nav-item" role="none">
+                <a class="nav-link" href="index.html" role="menuitem">Home</a>
+            </li>
+            <li class="nav-item" role="none">
+                <a class="nav-link" href="colecao.html" role="menuitem">Coleção</a>
+            </li>
+            <li class="nav-item" role="none">
+                <a class="nav-link" href="sobre.html" role="menuitem">Sobre</a>
+            </li>
+            <li class="nav-item" role="none">
+                <a class="nav-link active" href="contato.html" role="menuitem">Contato</a>
+            </li>
+        </ul>
+
+        <div class="mobile-actions">
+            <button class="mobile-action-btn" id="mobileSearchBtn" aria-label="Pesquisar produtos">
+                <i class="fas fa-search"></i>
+                <span>Pesquisar</span>
+            </button>
+            <button class="mobile-action-btn" id="mobileLoginBtn" aria-label="Fazer login">
+                <i class="fas fa-user"></i>
+                <span>Login</span>
+            </button>
+            <button class="mobile-action-btn" aria-label="Lista de favoritos">
+                <i class="fas fa-heart"></i>
+                <span>Favoritos</span>
+            </button>
+            <button class="mobile-action-btn" aria-label="Carrinho de compras">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Carrinho</span>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Modal de Pesquisa -->
+<div class="modal-overlay" id="searchModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Pesquisar Produtos</h3>
+            <button class="modal-close" id="closeSearchModal" aria-label="Fechar modal de pesquisa">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="search-form" id="searchForm">
+                <input type="text" class="search-input" id="searchInput" placeholder="Digite o que você procura..." autocomplete="off">
+                <button type="submit" class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+
+            <div class="search-suggestions">
+                <h4>Sugestões Populares</h4>
+                <div class="suggestion-tags">
+                    <button class="suggestion-tag" data-search="camisas">Camisas</button>
+                    <button class="suggestion-tag" data-search="camisas brancas">Camisas Brancas</button>
+                    <button class="suggestion-tag" data-search="camisas pretas">Camisas Pretas</button>
+                    <button class="suggestion-tag" data-search="stash">Stash</button>
+                    <button class="suggestion-tag" data-search="ofertas">Ofertas</button>
+                    <button class="suggestion-tag" data-search="novidades">Novidades</button>
+                </div>
+            </div>
+
+            <div class="search-results" id="searchResults" style="display: none;">
+                <h4>Resultados da Pesquisa</h4>
+                <div id="resultsContainer">
+                    <!-- Resultados serão inseridos aqui via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de Login -->
+<div class="modal-overlay" id="loginModal">
+    <div class="modal">
+        <div class="modal-header">
+            <h3 class="modal-title">Entrar na sua conta</h3>
+            <button class="modal-close" id="closeLoginModal" aria-label="Fechar modal de login">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form class="login-form" id="loginForm">
+                <div class="form-group">
+                    <label class="form-label" for="email">E-mail</label>
+                    <input type="email" class="form-input" id="email" placeholder="seu@email.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="password">Senha</label>
+                    <input type="password" class="form-input" id="password" placeholder="••••••••" required>
+                </div>
+
+                <div class="form-options">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Lembrar de mim</label>
+                    </div>
+                    <a href="#" class="forgot-password">Esqueci minha senha</a>
+                </div>
+
+                <div class="login-buttons">
+                    <button type="submit" class="btn btn-primary btn-lg">Entrar</button>
+                    <button type="button" class="btn btn-secondary btn-lg">Criar conta</button>
+                </div>
+            </form>
+
+            <div class="divider">
+                <span>ou continue com</span>
+            </div>
+
+            <div class="social-login">
+                <a href="#" class="social-btn">
+                    <i class="fab fa-google"></i>
+                    Google
+                </a>
+                <a href="#" class="social-btn">
+                    <i class="fab fa-facebook-f"></i>
+                    Facebook
+                </a>
+            </div>
+
+            <div class="signup-link">
+                Não tem uma conta? <a href="#">Cadastre-se gratuitamente</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Header da Página de Contato -->
+<header class="contact-header">
+    <div class="container">
+        <h1 class="fade-in-up">Entre em Contato</h1>
+        <p class="fade-in-up">Estamos aqui para ajudar. Envie-nos uma mensagem e responderemos o mais breve possível.</p>
+    </div>
+</header>
+
+<!-- Seção de Contato -->
+<section class="contact-section">
+    <div class="contact-container">
+        <div class="contact-info fade-in-up">
+            <h2>Informações de Contato</h2>
+            <p>Tem alguma dúvida ou sugestão? Estamos sempre disponíveis para ajudar. Entre em contato conosco através de qualquer um dos métodos abaixo ou preencha o formulário.</p>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Endereço</h4>
+                    <p>Rua da Moda, 123, Centro</p>
+                    <p>São Paulo - SP, CEP: 01234-567</p>
+                </div>
+            </div>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Telefone</h4>
+                    <p>+55 (11) 1234-5678</p>
+                    <p>+55 (11) 9876-5432</p>
+                </div>
+            </div>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Email</h4>
+                    <p>contato@stash.com.br</p>
+                    <p>suporte@stash.com.br</p>
+                </div>
+            </div>
+            
+            <div class="contact-method">
+                <div class="contact-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="contact-details">
+                    <h4>Horário de Funcionamento</h4>
+                    <p>Segunda a Sexta: 9h às 18h</p>
+                    <p>Sábado: 9h às 14h</p>
+                </div>
+            </div>
+            
+            <div class="social-links-contact">
+                <a href="#" class="social-link" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="Pinterest">
+                    <i class="fab fa-pinterest"></i>
+                </a>
+                <a href="#" class="social-link" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="contact-form fade-in-up">
+            <h3>Envie-nos uma Mensagem</h3>
+            <form id="contactForm">
+                <div class="form-group form-row">
+                    <div>
+                        <input type="text" class="form-control" name="nome" placeholder="Nome Completo" required>
+                    </div>
+                    <div>
+                        <input type="email" class="form-control" name="email" placeholder="Email" required>
+                    </div>
+                </div>
+                
+                <div class="form-group form-row">
+                    <div>
+                        <input type="tel" class="form-control" name="telefone" placeholder="Número de Telefone">
+                    </div>
+                    <div>
+                        <select class="form-control" name="assunto" required>
+                            <option value="">Selecione o Assunto</option>
+                            <option value="duvida">Dúvida sobre Produto</option>
+                            <option value="pedido">Informações sobre Pedido</option>
+                            <option value="troca">Troca/Devolução</option>
+                            <option value="sugestao">Sugestão</option>
+                            <option value="reclamacao">Reclamação</option>
+                            <option value="outros">Outros</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <textarea class="form-control" name="mensagem" placeholder="Sua Mensagem" rows="6" required></textarea>
+                </div>
+                
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    <label for="newsletter">Desejo receber novidades e ofertas por email</label>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i>
+                    Enviar Mensagem
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Seção FAQ -->
+<section class="faq-section">
+    <div class="container">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Como posso rastrear meu pedido?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Após a confirmação do pagamento, você receberá um código de rastreamento por email. Você também pode acompanhar seu pedido através da nossa área do cliente.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Qual é o prazo de entrega?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>O prazo de entrega varia de acordo com sua localização. Para a região metropolitana de São Paulo, o prazo é de 1-2 dias úteis. Para outras regiões, de 3-7 dias úteis.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Como funciona a política de troca?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Você tem até 30 dias para solicitar a troca de produtos. O item deve estar em perfeitas condições, com etiquetas e embalagem original. Entre em contato conosco para iniciar o processo.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Quais formas de pagamento vocês aceitam?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Aceitamos cartões de crédito (Visa, Mastercard, Elo), cartões de débito, PIX, boleto bancário e PayPal. Também oferecemos parcelamento em até 12x sem juros.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <span>Como escolher o tamanho correto?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </button>
+                <div class="faq-answer">
+                    <p>Cada produto possui uma tabela de medidas detalhada. Recomendamos que você consulte nossa guia de tamanhos e, em caso de dúvida, entre em contato conosco.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Seção do Mapa -->
+<section class="map-section">
+    <div class="map-container">
+        <h2>Nossa Localização</h2>
+        <p class="map-description">Visite nossa loja física e conheça de perto nossa coleção exclusiva.</p>
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.1976900292864!2d-46.65429492535851!3d-23.56361017882644!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59c8da0aa315%3A0xd59f9431f2c9776a!2sAv.%20Paulista%2C%20S%C3%A3o%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1685987654321!5m2!1spt-BR!2sbr" 
+            class="map-frame" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Localização da STASH na Avenida Paulista">
+        </iframe>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark py-5">
+    <div class="container">
+        <div class="row text-white g-4">
+            <div class="col-md-6 col-lg-3">
+                <a class="text-uppercase text-decoration-none brand text-white" href="index.html">Stash</a>
+                <p class="text-white text-muted mt-3">
+                    Sua loja de moda online com as melhores tendências e qualidade excepcional. 
+                    Descubra seu estilo único conosco e vista-se com elegância e sofisticação.
+                </p>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <h5 class="fw-light">Links Rápidos</h5>
+                <ul class="list-unstyled">
+                    <li class="my-3">
+                        <a href="index.html" class="text-white text-decoration-none text-muted">
+                            <i class="fas fa-chevron-right me-1"></i> Home
+                        </a>
+                    </li>
+                    <li class="my-3">
+                        <a href="colecao.html" class="text-white text-decoration-none text-muted">
+                            <i class="fas fa-chevron-right me-1"></i> Coleção
+                        </a>
+                    </li>
+                    <li class="my-3">
+                        <a href="sobre.html" class="text-white text-decoration-none text-muted">
+                            <i class="fas fa-chevron-right me-1"></i> Sobre
+                        </a>
+                    </li>
+                    <li class="my-3">
+                        <a href="contato.html" class="text-white text-decoration-none text-muted">
+                            <i class="fas fa-chevron-right me-1"></i> Contato
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <h5 class="fw-light mb-3">Fale Conosco</h5>
+                <div class="contact-info">
+                    <div class="contact-item d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class="me-3">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </span>
+                        <span class="fw-light">
+                            Rua da Moda, 123, Centro, São Paulo - SP, CEP: 01234-567
+                        </span>
+                    </div>
+
+                    <div class="contact-item d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class="me-3">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                        <span class="fw-light">
+                            contato@stash.com.br
+                        </span>
+                    </div>
+                    
+                    <div class="contact-item d-flex justify-content-start align-items-start my-2 text-muted">
+                        <span class="me-3">
+                            <i class="fas fa-phone-alt"></i>
+                        </span>
+                        <span class="fw-light">
+                            +55 (11) 1234-5678
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+                <h5 class="fw-light mb-3">Redes Sociais</h5>
+                <div class="social-links d-flex">
+                    <a href="#" class="text-white text-decoration-none text-muted fs-4 me-4" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-white text-decoration-none text-muted fs-4 me-4" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-white text-decoration-none text-muted fs-4 me-4" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-white text-decoration-none text-muted fs-4 me-4" aria-label="Pinterest">
+                        <i class="fab fa-pinterest"></i>
+                    </a>
+                </div>
+                <div class="mt-4">
+                    <h6 class="fw-light mb-3">Formas de Pagamento</h6>
+                    <div class="d-flex gap-2">
+                        <i class="fab fa-cc-visa fs-4 text-muted"></i>
+                        <i class="fab fa-cc-mastercard fs-4 text-muted"></i>
+                        <i class="fab fa-cc-paypal fs-4 text-muted"></i>
+                        <i class="fas fa-credit-card fs-4 text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="my-4" style="border-color: var(--color-gray-medium);">
+        <div class="text-center text-muted">
+            <p>&copy; 2024 STASH. Todos os direitos reservados. | Desenvolvido com ❤️ para você</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/contato.js"></script>
+
+</body>
+</html>
